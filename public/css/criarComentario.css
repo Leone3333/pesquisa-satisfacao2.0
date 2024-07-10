@@ -1,0 +1,102 @@
+/* Estilos padroões */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #03071a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    position: relative;
+    display: grid;
+    justify-content: center;
+}
+
+/* estilos do formulario */
+.form-container {
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 75vh;
+    height: 95vh;
+    background: #5c6490;
+    border: 3px solid #2e3564;
+    border-radius: 10px;
+    box-shadow: #ab81ff73 0px 3px 8px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    color: aliceblue;
+}
+
+.inputs{
+    margin-top: 15px;
+    padding: 15px;
+}
+
+.inputs > label{
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.inputs > input{
+    margin-top: 25px;
+    width: 600px;
+    height: 60px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    outline: none;
+}
+
+.inputs > textarea{
+    margin-top: 25px;
+    width: 400px;
+    height: 200px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    outline: none;
+}
+
+.button-container{
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button-container > button{
+    outline: none;
+    border: none;
+    border-radius: 25px;
+    padding: 10px;
+    width: 120px;
+    height: 50px;
+    background: #1531e7;
+    color: aliceblue;
+    font-weight: 500;
+    font-size: 20px;
+    opacity: 0.9;
+    box-shadow: #1531e7 0px 3px 6px;
+    transition: opacity 0.2s ease;
+}
+
+.button-container > button:hover{
+    opacity: 1.0;
+}
+
+.rodape-container{
+    margin-top: 20px;
+    padding: 10px;
+    width: 700px;
+    display: flex;
+    justify-content: center;
+}

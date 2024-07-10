@@ -1,0 +1,105 @@
+/* Estilos padroões */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #03071a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    position: relative;
+    display: grid;
+}
+
+/* estilos do titulo principal */
+.title {
+    position: relative;
+    display: flex;
+    margin-top: 50px;
+    left: 200px;
+}
+
+.title>h1 {
+    font-size: 120px;
+    color: aliceblue;
+}
+
+/* ATENÇÃO: [sessões de botão] é o nome que eu dei para a div
+com a junção do butão de emoji e o subtitulo dele */
+
+
+/* Estilos para organizar as sessões de botão no centro */
+.container-buttons {
+    display: flex;
+    gap: 150px;
+    margin-top: 50px;
+    margin-bottom: 200px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* Estilos para orientar as sessões de botão na horizontal e criar espaçamento entre eles */
+.section-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 200px;
+}
+
+/* o botão e o label, serve para auxiliar na hora de dispor cada sessão de botão */
+.button-label-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* As classes de cada botão, caracteristicas gerais */
+.smile-label,
+.morelas-label,
+.bad-label {
+    font-size: 34px;
+    font-weight: 800;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* class adicionada no evento do satisfacao.js */
+.smile-label.visibel,
+.morelas-label.visibel,
+.bad-label.visibel {
+    opacity: 1;
+}
+
+/* cores dos botões */
+.smile-label {
+    color: #25da42;
+}
+
+.morelas-label{
+    color: #f7e911;
+}
+
+.bad-label{
+    color: #f13a36;
+}
+
+/*Caracteristica para deixar apenas o emoji um botão  */
+.button-emoji {
+    background: none;
+    border: none;
+    text-decoration: none;
+    font-size: 200px;
+    transition: font-size 0.5s ease;
+}
+
+/* class adicionada no evento do satisfacao.js */
+.button-emoji.enlarged {
+    font-size: 220px;
+    /* Tamanho aumentado */
+}
