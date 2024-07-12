@@ -20,7 +20,7 @@ class AcessosController extends Controller
         if (isset($users)) {
             foreach ($users as $user) {
                 if ($user->email == $emailLogin && $user->senha == $senhaLogin) {
-                        return redirect()->route('dashboard', ['user'=>$user]);
+                        return redirect()->route('dashboard', ['user' => $user]);
                 }
             }
             return redirect()->route('login')->with('msgErro', 'Email ou senha incorretos, tente novamente.');
@@ -37,10 +37,14 @@ class AcessosController extends Controller
 
     public function dashboard(Request $requisicao)
     {
-        $user = $requisicao->acesso;
+        $user = $requisicao->all();
         $chart = new DashbordController();
 
         $graficoPizza = $chart->index();
-        return view('acesso.dashboard', ['user' => $user, 'graficoPizza' => $graficoPizza]);
+        $graficoBarra = $chart->index2();
+        // echo "<br><br>";
+        // print_r($graficoPizza);
+        // die;
+        return view('acesso.dashboard', ['user' => $user, 'graficoPizza' => $graficoPizza, 'graficoBarra' => $graficoBarra]);
     }
 }

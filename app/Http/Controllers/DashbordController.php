@@ -14,4 +14,10 @@ class DashbordController extends Controller
         $chart = new FeedbacksChart;
         return $chart->quantidadeFeedbacksChart();
     }
+
+    public function index2()
+    {
+        $chart = new FeedbacksChart;
+        return $chart->feedbacksPorSetor();
+    }
 }

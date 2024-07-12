@@ -20,3 +20,4 @@ Route::post('/login', [AcessosController::class, 'login']);
 Route::get('/dashboard', [AcessosController::class, 'dashboard'])->name('dashboard');
 
 Route::get('/teste', [FeedbackController::class,'exibirDados']);
+Route::post('/dashboard/filtro/', [FeedbackController::class,'comentarioPorFeedbackQuery']);
