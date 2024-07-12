@@ -8,13 +8,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', function () {
-    return view('acesso.login');
-});
+// Route::get('/login', function () {
+//     return view('acesso.login');
+// });
 
 Route::post('/comentarios', [FeedbackController::class, 'redirecionarParaCriacao']);
 Route::post('/comentarios/criarComentarios/', [FeedbackController::class, 'salvarFeedback']);
-Route::post('/login', [AcessosController::class, 'login']);
 
+Route::get('/login', [AcessosController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AcessosController::class, 'login']);
+Route::get('/dashboard', [AcessosController::class, 'dashboard'])->name('dashboard');
 
 Route::get('/teste', [FeedbackController::class,'exibirDados']);

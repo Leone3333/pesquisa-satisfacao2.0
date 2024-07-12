@@ -19,16 +19,28 @@ class AcessosController extends Controller
 
         if (isset($users)) {
             foreach ($users as $user) {
-                if ($user->email == $emailLogin) {
-                    if ($user->senha == $senhaLogin) {
-                        return view('acesso.dashbord', ['acesso' => $user]);
-                    }
+                if ($user->email == $emailLogin && $user->senha == $senhaLogin) {
+                        return redirect()->route('dashboard', ['user'=>$user]);
                 }
             }
-            return view('acesso.login', ['msg' => $msg]);
+            return redirect()->route('login')->with('msgErro', 'Email ou senha incorretos, tente novamente.');
         } else {
             echo "ERRO NO ENVIO DO FORMULARIO TENTE NOVAMENTE";
             die;
         }
+    }
+
+    public function showLoginForm()
+    {
+        return view('acesso.login');
+    }
+
+    public function dashboard(Request $requisicao)
+    {
+        $user = $requisicao->acesso;
+        $chart = new DashbordController();
+
+        $graficoPizza = $chart->index();
+        return view('acesso.dashboard', ['user' => $user, 'graficoPizza' => $graficoPizza]);
     }
 }

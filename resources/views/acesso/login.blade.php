@@ -5,6 +5,10 @@
 <body>
     <div class="main-login">
 
+        @if (session()->has('msgErro'))
+            <h2>{{session()->get('msgErro')}}</h2>
+        @endif
+
         <h1>Bem vindo!<br>Acesse o sistema aqui</h1>
 
         <div class="main-login-right">
