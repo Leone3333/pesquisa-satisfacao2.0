@@ -1,4 +1,4 @@
-<h1 align="center">Sistema de pesquisa de satisfação</h1>
+<h1 align="center">Sistema pesquisa de satisfação</h1>
 
 <p>Este sistema é uma versão 100% autoral do sistema Projeto_satisfação feito anteriormente</p>
 
