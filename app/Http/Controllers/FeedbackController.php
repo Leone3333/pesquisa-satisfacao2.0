@@ -35,11 +35,4 @@ class FeedbackController extends Controller
         return redirect('/');
     }
 
-    public function comentarioPorFeedbackQuery(Request $requisicao)
-    {
-        $feedbackk = $requisicao->all();
-        // print_r($feedbackk);
-        // die;
-        return view('welcome');
-    }
 }

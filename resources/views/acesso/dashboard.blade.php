@@ -8,16 +8,24 @@
     @dump($user);
     @dump($graficoPizza); --}}
 
-    <form action="/dashboard/filtro" method="post">
+    <form action="/dashboard" method="post">
+        @csrf
         <label for="formulario"> <br>Feedbacks<br></label>
-        <select id="forms_" name="feedback">
+        <select id="forms" name="feedback">
             <option value="1">Muito satisfeito</option>
             <option value="2">Insatisfeito</option>
             <option value="3">Muito insatisfeito</option>
         </select>
-        <input type="submit" value="enviar">
+        <input type="submit">
     </form>
 
+    <form action="/" method="get">
+        <button type="submit">Home</button>
+    </form>
+
+    <form action="/dashboard" method="get">
+        <button type="submit">Sair</button>
+    </form>
 
     @if (isset($user))
         <table>
@@ -32,6 +40,20 @@
         </table>
     @endif
 
+    @if (isset($table))
+        <div class="table">
+
+            @foreach ($table as $line)
+            <h4 style="color: #000"> Tipo de feedback: {{$line['tipoFeedback'] === "2" ? 'Insatisfeito' :
+            ($line['tipoFeedback'] === "1" ? 'Satisfeito' :
+            ($line['tipoFeedback'] === "3" ? 'Muito insatisfeito' : $line['tipoFeedback']))}}</h4>
+            <h4 style="color: #000"> Setor: {{$line['setor']}}</h4>
+            <h4 style="color: #000"> Comentario: {{$line['comentario']}}</h4>
+            <hr style="color:bisque">
+        @endforeach
+        </div>
+    @endif
+
     <div style="width: 500px" class="chartPie">
         <h2>Grafico de pizza</h2>
         {!! $graficoPizza->container() !!}
@@ -41,6 +63,7 @@
         <h2>Grafico de barra</h2>
         {!! $graficoBarra->container() !!}
     </div>
+
 
 
 

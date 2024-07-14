@@ -23,7 +23,7 @@ body {
     align-items: center;
     padding: 20px;
     width: 75vh;
-    height: 95vh;
+    height: 90vh;
     background: #5c6490;
     border: 3px solid #2e3564;
     border-radius: 10px;
@@ -37,43 +37,55 @@ body {
     color: aliceblue;
 }
 
-.inputs{
-    margin-top: 15px;
+.inputs {
+    margin-top: 8;
     padding: 15px;
 }
 
-.inputs > label{
+.inputs>label {
     font-size: 30px;
     font-weight: 500;
 }
 
-.inputs > input{
+.inputs>input {
     margin-top: 25px;
     width: 600px;
-    height: 60px;
+    height: 50px;
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 10px;
     outline: none;
+    transition: box-shadow 0.3s ease-in;
 }
 
-.inputs > textarea{
-    margin-top: 25px;
+.inputs>input:hover {
+    transition: box-shadow 0.2s ease-in;
+    box-shadow: #3e4fc1 0px 10px 20px
+}
+
+.inputs>textarea {
+    margin-top: 20px;
     width: 400px;
     height: 200px;
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 10px;
     outline: none;
+    transition: box-shadow 0.3s ease-in;
 }
 
-.button-container{
+.inputs>textarea:hover {
+    transition: box-shadow 0.2s ease-in;
+    box-shadow: #3e4fc1 0px 10px 20px
+}
+
+.button-container {
     padding: 15px;
     display: flex;
     justify-content: flex-end;
 }
 
-.button-container > button{
+.button-container>button {
     outline: none;
     border: none;
     border-radius: 25px;
@@ -87,16 +99,15 @@ body {
     opacity: 0.9;
     box-shadow: #1531e7 0px 3px 6px;
     transition: opacity 0.2s ease;
+    transition: box-shadow 0.3s ease;
 }
 
-.button-container > button:hover{
+.button-container>button:hover {
     opacity: 1.0;
+    box-shadow: #0d25c4 0px 3px 6px
 }
 
-.rodape-container{
-    margin-top: 20px;
-    padding: 10px;
-    width: 700px;
+.rodape-container {
     display: flex;
     justify-content: center;
 }
