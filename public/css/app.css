@@ -20,12 +20,12 @@ body {
 .title {
     position: relative;
     display: flex;
-    margin-top: 50px;
-    left: 200px;
+    justify-content: center;
+    top: -10vh;
 }
 
 .title>h1 {
-    font-size: 120px;
+    font-size: 90px;
     color: aliceblue;
 }
 
@@ -37,10 +37,8 @@ com a junção do butão de emoji e o subtitulo dele */
 .container-buttons {
     display: flex;
     gap: 150px;
-    margin-top: 50px;
-    margin-bottom: 200px;
     align-items: center;
-    justify-content: center;
+    /*  */
 
 }
 
@@ -94,12 +92,12 @@ com a junção do butão de emoji e o subtitulo dele */
     background: none;
     border: none;
     text-decoration: none;
-    font-size: 200px;
+    font-size: 180px;
     transition: font-size 0.5s ease;
 }
 
 /* class adicionada no evento do satisfacao.js */
 .button-emoji.enlarged {
-    font-size: 220px;
+    font-size: 200px;
     /* Tamanho aumentado */
 }
