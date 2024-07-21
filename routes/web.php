@@ -5,6 +5,7 @@ use App\Http\Controllers\FeedbackController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+    session()->forget('user');
     return view('welcome');
 });
 

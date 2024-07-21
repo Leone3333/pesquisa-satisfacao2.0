@@ -3,6 +3,7 @@
 namespace App\Charts;
 
 use ConsoleTVs\Charts\Classes\Chartjs\Chart;
+use App\Models\Feedbacks;
 
 class FeedbacksChart extends Chart
 {
@@ -18,19 +19,34 @@ class FeedbacksChart extends Chart
 
     public function quantidadeFeedbacksChart()
     {
+        $data = Feedbacks::selectRaw('tipoFeedback, COUNT(*) as total')
+        ->groupBy('tipoFeedback')
+        ->orderBy('tipoFeedback')
+        ->get()
+        ->toArray();
+
         // Campos
         $this->labels(['Muito satisfeito', 'Mais ou menos', 'Insatisfeito']);
 
         // Nome do grafico, tipo do grafico, valores->método das cores([cores aqui])
-        $this->dataset('Feedbacks', 'pie', [26,13,22])->backgroundColor(['#28a745', '#ffc107', '#dc3545']);
+        $this->dataset('Total', 'pie', [$data[0]['total'],$data[1]['total'],$data[2]['total']])
+        ->backgroundColor(['#28a745', '#ffc107', '#dc3545']);
         return $this;
     }
 
     public function feedbacksPorSetor()
     {
-        $this->labels(['atendimento', 'organização','limpeza','limpeza','caixa']);
+        $data = Feedbacks::selectRaw('setor, COUNT(*) as total')
+        ->whereIn('setor', ['atendimento','caixa','limpeza','organização'])
+        ->groupBy('setor')
+        ->orderBy('setor')
+        ->get()
+        ->toArray();
 
-        $this->dataset('Setores', 'bar', [10,10,2,1,3])->backgroundColor(['#28a745', '#ffc107', '#dc3545','#fg8989','#ffc810']);
+        $this->labels(['atendimento', 'caixa', 'limpeza', 'organização']);
+
+        $this->dataset('Total de Feedbacks', 'bar', [$data[0]['total'],$data[1]['total'],$data[2]['total'], $data[3]['total']])
+        ->backgroundColor(['#28a745', '#ffc107', '#dc3545','#ed8021']);
 
         $this->options([
             'legend' => [

@@ -49,14 +49,19 @@ class AcessosController extends Controller
         } else {
             $chart = new DashbordController();
 
-            $graficoPizza = $chart->index();
-            $graficoBarra = $chart->index2();
+            $graficoPizza = $chart->chartQttFeedback();
+            $graficoBarra = $chart->chartFeedbackPorSetor();
 
-            if (isset($requisicao['feedback'])) {
-                $table = $chart->index4($requisicao['feedback']);
+            if (isset($requisicao['tipoFeedback'])) {
+                $table = $chart->onlyFeedbacksForType($requisicao['tipoFeedback']);
                 return view('acesso.dashboard', ['graficoPizza' => $graficoPizza, 'graficoBarra' => $graficoBarra, 'table' => $table]);
-            } else {
-                $table = $chart->index3();
+
+            } else if(isset($requisicao['setorFeedback'])){
+                $table = $chart->onlyFeedbacksForSetor($requisicao['setorFeedback']);
+                return view('acesso.dashboard', ['graficoPizza' => $graficoPizza, 'graficoBarra' => $graficoBarra, 'table' => $table]);
+
+            }else {
+                $table = $chart->allFeedbacks();
                 return view('acesso.dashboard', ['graficoPizza' => $graficoPizza, 'graficoBarra' => $graficoBarra, 'table' => $table]);
             }
         }

@@ -16,4 +16,5 @@ class Feedbacks extends Model
         'setor',
         'comentario',
     ];
+
 }
