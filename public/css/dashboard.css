@@ -1,0 +1,133 @@
+/* Estilos padroões */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: #f8faffe2
+}
+
+.navBar {
+    padding: 15px;
+    background: #06122a;
+
+}
+
+.navBar>h1{
+    color: aliceblue;
+    font-size: 25px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.navButtons{
+    width: 300px;
+    display: flex;
+    gap: 40px;
+}
+
+.navButton,.navButtonReload{
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.1s ease-in;
+    color: aliceblue;
+    font-weight: 600;
+}
+
+.navButton{
+    width: 60px;
+    height: 30px;
+    font-size: 16px;
+    background: #fcbf08f9;
+}
+
+.navButtonReload{
+    width: 85px;
+    height: 35px;
+    font-size: 15px;
+    background: #08a7fcc3;
+}
+
+.navButton:hover{
+    transform: translateY(-0.8px);
+}
+
+.navButtonReload:hover{
+    transform: translateY(-0.8px);
+}
+
+
+.container-charts{
+    /* border: 2px solid red; */
+    width: 100%;
+
+}
+
+.div-table,.chartPie{
+    margin: 20px;
+    background: #fff;
+    border: 1px solid #2552abc3;
+    border-radius: 10px;
+    padding: 50px;
+}
+
+.table{
+    border: 1px solid #06122a;
+}
+
+.filters{
+    display: flex;
+    padding: 10px;
+    gap: 50px;
+}
+
+.selected-feedback{
+    border: 1px solid yellow;
+    display: flex;
+    font-family: Arial;
+    padding: 5px;
+    margin: 5px;
+    margin-left: -30px;
+}
+.selected-feedback-labels{
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px;
+    margin: 5px;
+
+}
+
+
+.selected-feedback-labels>select{
+    margin-top: 5px;
+    appearance: none;
+    font-size: 16px;
+    padding: 3px;
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    color: #000;
+    cursor: pointer;
+}
+
+.selectedButton{
+    width: 60px;
+    height: 30px;
+    font-size: 15px;
+    background: #049730c8;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.1s ease-in;
+    color: aliceblue;
+    font-weight: 400;
+    margin-top: 45px;
+}
