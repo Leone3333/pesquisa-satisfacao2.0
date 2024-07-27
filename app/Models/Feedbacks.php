@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\DB;
 
 class Feedbacks extends Model
 {
@@ -17,4 +18,7 @@ class Feedbacks extends Model
         'comentario',
     ];
 
+    public static function cards(){
+
+    }
 }
