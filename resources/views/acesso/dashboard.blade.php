@@ -28,22 +28,22 @@
 
             <div id="positive-card" class="div-card">
                 <h2>Satisfeitos:</h2>
-                <h3>31%</h3>
+                <h3>{{$cardColorfull[0]['perTipoFeedback']}}%</h3>
             </div>
 
             <div id="moreLass-card" class="div-card">
                 <h2>Insatisfeitos:</h2>
-                <h3>31%</h3>
+                <h3>{{$cardColorfull[1]['perTipoFeedback']}}%</h3>
             </div>
 
             <div id="negative-card" class="div-card">
                 <h2>Muito insatisfeitos:</h2>
-                <h3>31%</h3>
+                <h3>{{$cardColorfull[2]['perTipoFeedback']}}%</h3>
             </div>
 
             <div id="total-card" class="div-card">
-                <h2>Total:</h2>
-                <h3>13</h3>
+                <h2>Total feedbacks:</h2>
+                <h3>{{$cardGray[0]['total']}}</h3>
             </div>
 
         </div>

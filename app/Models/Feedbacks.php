@@ -18,7 +18,5 @@ class Feedbacks extends Model
         'comentario',
     ];
 
-    public static function cards(){
-
-    }
+    use HasFactory;
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Feedbacks;
 use App\Charts\FeedbacksChart;
+use Illuminate\Support\Facades\DB;
 
 class DashbordController extends Controller
 {
@@ -57,5 +58,26 @@ class DashbordController extends Controller
 
             return $query;
         }
+    }
+
+    public function cardsColorfull()
+    {
+
+    $query = Feedbacks::selectRaw("tipoFeedback, ROUND(COUNT(tipoFeedback) * 100.0 / (SELECT COUNT(*) FROM feedbacks), 2) AS perTipoFeedback")
+    ->groupBy('tipoFeedback')
+    ->orderBy('tipoFeedback')
+    ->get()
+    ->toArray();
+
+    return $query;
+    }
+
+    public function cardGray()
+    {
+        $query = Feedbacks::selectRaw("COUNT(*) as total")
+        ->get()
+        ->toArray();
+
+        return $query;
     }
 }
