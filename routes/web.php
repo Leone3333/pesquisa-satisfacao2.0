@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AcessosController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\DashbordController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,5 +22,7 @@ Route::post('/login', [AcessosController::class, 'login']);
 
 Route::get('/dashboard', [AcessosController::class, 'dashboard'])->name('dashboard');
 Route::post('/dashboard', [AcessosController::class,'dashboard'])->name('dashboard');
+
+Route::get('/feedbacks', [DashbordController::class, 'fetchFeedbacks'])->name('feedbacks');
 
 Route::get('/teste', [FeedbackController::class,'exibirDados']);

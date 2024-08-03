@@ -25,7 +25,7 @@ class DashbordController extends Controller
 
     public function allFeedbacks()
     {
-        $query = Feedbacks::all()->toArray();
+        $query = Feedbacks::paginate(10);
 
         return $query;
     }
@@ -49,9 +49,8 @@ class DashbordController extends Controller
                 ->toArray();
 
             return $query;
-
         } else {
-            $query = Feedbacks::whereNotIn('setor', ['atendimento','caixa','limpeza','organização','vendedores'])
+            $query = Feedbacks::whereNotIn('setor', ['atendimento', 'caixa', 'limpeza', 'organização', 'vendedores'])
                 ->orderBy('tipoFeedback')
                 ->get()
                 ->toArray();
@@ -63,20 +62,20 @@ class DashbordController extends Controller
     public function cardsColorfull()
     {
 
-    $query = Feedbacks::selectRaw("tipoFeedback, ROUND(COUNT(tipoFeedback) * 100.0 / (SELECT COUNT(*) FROM feedbacks), 2) AS perTipoFeedback")
-    ->groupBy('tipoFeedback')
-    ->orderBy('tipoFeedback')
-    ->get()
-    ->toArray();
+        $query = Feedbacks::selectRaw("tipoFeedback, ROUND(COUNT(tipoFeedback) * 100.0 / (SELECT COUNT(*) FROM feedbacks), 2) AS perTipoFeedback")
+            ->groupBy('tipoFeedback')
+            ->orderBy('tipoFeedback')
+            ->get()
+            ->toArray();
 
-    return $query;
+        return $query;
     }
 
     public function cardGray()
     {
         $query = Feedbacks::selectRaw("COUNT(*) as total")
-        ->get()
-        ->toArray();
+            ->get()
+            ->toArray();
 
         return $query;
     }

@@ -146,12 +146,14 @@ body {
     border-bottom: 2px solid #fcc108;
 }
 
+.form-group>input:hover ~ label,
 .form-group>input:focus ~ label,
 .form-group>input:not(:placeholder-shown) ~ label {
     top: -6px;
     left: 4px;
     font-size: 14px;
     color: #fcc108;
+    outline: none;
 }
 
 .form-button{

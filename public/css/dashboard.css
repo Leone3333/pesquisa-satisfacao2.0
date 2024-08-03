@@ -153,17 +153,17 @@ body{
 
 .container-table{
     width: 100%;
+    margin-bottom: 50px;
     /* border: 1px solid red; */
 }
 
 .div-table{
     position: relative;
-    left: 190px;
-    max-width: 175vh;
+    left: 180px;
+    max-width: 160vh;
 }
 
 .table{
-    border: 1px solid #06122a;
     max-width: 150vh;
 }
 
@@ -181,13 +181,44 @@ td.topics{
 }
 
 th.topics {
+    border: 1px solid #06122a;
     background-color: #b3b1b1;
+}
+
+.pagination {
+    /* border: 1px solid green; */
+    justify-content: flex-start;
+}
+
+.page-item {
+    margin: 0 5px;
+}
+
+.page-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.page-link:hover {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+.page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+.page-item.disabled .page-link {
+    color: #6c757d;
 }
 
 .filters{
     display: flex;
     gap: 25px;
 }
+
 
 .selected-feedback{
     /* border: 1px solid yellow; */
@@ -211,7 +242,8 @@ th.topics {
 
 
 .selected-feedback-labels>select{
-    margin-top: 5px;
+    position: relative;
+    top: -1px;
     appearance: none;
     font-size: 16px;
     padding: 3px;
