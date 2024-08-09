@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     {{-- css --}}
     <link rel="stylesheet" href="/css/dashboard.css">
+    <!-- Ícones -->
+	<link rel="stylesheet" type="text/css" href=" https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css ">
+
 
 </head>
 
@@ -21,6 +24,7 @@
 {{-- js --}}
 <script src="../js/bootstrap.js"></script>
 <script src="../js/app.js"></script>
+<script src="../js/dashboard.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
 
 

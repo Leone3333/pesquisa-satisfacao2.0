@@ -34,8 +34,7 @@ class DashbordController extends Controller
     {
         $query = Feedbacks::where('tipoFeedback', $requestTipoFeedback)
             ->orderBy('setor')
-            ->get()
-            ->toArray();
+            ->paginate(10);
 
         return $query;
     }
@@ -45,15 +44,13 @@ class DashbordController extends Controller
         if ($requestSetorFeedback != "outros") {
             $query = Feedbacks::where('setor', $requestSetorFeedback)
                 ->orderBy('tipoFeedback')
-                ->get()
-                ->toArray();
+                ->paginate(10);
 
             return $query;
         } else {
-            $query = Feedbacks::whereNotIn('setor', ['atendimento', 'caixa', 'limpeza', 'organização', 'vendedores'])
+            $query = Feedbacks::whereNotIn('setor', ['atendimento', 'caixa', 'limpeza', 'organização'])
                 ->orderBy('tipoFeedback')
-                ->get()
-                ->toArray();
+                ->paginate(10);
 
             return $query;
         }

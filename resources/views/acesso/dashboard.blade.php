@@ -19,10 +19,39 @@
     </nav>
 
     <div class="sideBar">
+        <ul class="nav-links">
 
+            <div class="toltip">
+            <li>
+                <a href="#card-section">
+                        <i class='bx bxs-chart'></i>
+                        Cards
+                    </a>
+                </li>
+            </div>
+
+            <div class="toltip">
+                <li>
+                    <a href="#charts-section">
+                        <i class='bx bxs-pie-chart-alt-2'></i>
+                        Graficos
+                    </a>
+                </li>
+            </div>
+
+            <div class="toltip">
+                <li>
+                    <a href="#table-section">
+                        <i class='bx bx-table'></i>
+                        Tabela
+                    </a>
+                </li>
+            </div>
+        </ul>
     </div>
     {{-- @dump($graficoPizza->container()); --}}
 
+    <div id="card-section"></div>
     <div class="session-charts">
 
         <div class="container-cards">
@@ -49,6 +78,7 @@
 
         </div>
 
+        <div id="charts-section"></div>
         <div class="container-charts">
             <div class="div-chart">
                 <h2>Grafico de pizza</h2>
@@ -61,6 +91,7 @@
             </div>
         </div>
 
+        <div id="table-section"></div>
         <div class="container-table">
             <div class="div-table">
                 <h1>Comentarios</h1>
@@ -100,24 +131,26 @@
                     </div>
 
                     <div class="table-links">
-                        {{ $table->links('vendor.pagination.custom')}}
+                        {{ $table->links('vendor.pagination.custom') }}
                     </div>
                     <tr>
-                        <th id="simple-topic" class="topics">Tipo Feedback</th>
-                        <th id="simple-topic" class="topics">Setor</th>
-                        <th class="topics">Comentario</th>
+                        <div class="titles-table">
+                            <th id="simple-topic" class="topics">Tipo Feedback</th>
+                            <th id="simple-topic" class="topics">Setor</th>
+                            <th class="topics">Comentario</th>
+                        </div>
                     </tr>
 
                     @if (isset($table) && $table->count())
                         @foreach ($table as $line)
-                        <tr>
-                            <td class="topics" id="simple-topic">
-                                {{ $line->tipoFeedback === '2' ? 'Insatisfeito' : ($line->tipoFeedback === '1' ? 'Satisfeito' : ($line->tipoFeedback === '3' ? 'Muito insatisfeito' : $line->tipoFeedback)) }}
-                            </td>
-                            <td id="simple-topic" class="topics">{{ $line->setor }}</td>
-                            <td class="topics">{{ $line->comentario }}</td>
-                        </tr>
-                            @endforeach
+                            <tr>
+                                <td class="topics" id="simple-topic">
+                                    {{ $line->tipoFeedback === '2' ? 'Insatisfeito' : ($line->tipoFeedback === '1' ? 'Satisfeito' : ($line->tipoFeedback === '3' ? 'Muito insatisfeito' : $line->tipoFeedback)) }}
+                                </td>
+                                <td id="simple-topic" class="topics">{{ $line->setor }}</td>
+                                <td class="topics">{{ $line->comentario }}</td>
+                            </tr>
+                        @endforeach
                     @endif
                 </table>
 

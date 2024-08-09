@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Feedbacks>
@@ -18,12 +17,9 @@ class FeedbacksFactory extends Factory
     public function definition(): array
     {
         return [
-            //
             'tipoFeedback' => $this->faker->randomElement([1,2,3]),
-            'setor' => $this->faker->jobTitle(),
-            'comentario' => Str::random(10),
-            // 'updated_at' => now(),
-            // 'created_at' => now(),
+            'setor' => $this->faker->randomElement(['atendimento','organização','limpeza','caixa','outros']),
+            'comentario' => $this->faker->text()
         ];
     }
 }

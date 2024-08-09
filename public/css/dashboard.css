@@ -68,20 +68,67 @@ body{
 }
 
 .sideBar{
-    width: 50px;
+    display: grid;
+    width: 8vh;
     height: 100vh;
     background-color: #0e234e;
     color: white;
     padding: 15px;
     position: fixed;
-    top: 0;
     left: 0;
     overflow-y: auto;
+    transition: width 0.3s ease;
+    /* border: 2px solid red; */
 }
+
+.sideBar.wide{
+    width: 20vh;
+}
+
+.sideBar .nav-links{
+    height: 100%;
+    padding: 40px 0 150px 0;
+    overflow: auto;
+}
+
+.sidebar .nav-links li {
+    position: relative;
+    list-style: none;
+}
+
+.sidebar .nav-links li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.sidebar .nav-links li i {
+    height: 50px;
+    min-width: 35px;
+    text-align: center;
+    line-height: 60px;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toltip a{
+    font-size: 18px;
+    font-weight: 500;
+    color: aliceblue;
+}
+
 
 .session-charts{
     /* border: 2px solid red; */
     width: 100%;
+}
+
+.session-charts.transitionSideBar{
+    /* border: 2px solid red; */
+    width: 100%;
+    margin-left: 8%;
 }
 
 .container-cards{
@@ -167,13 +214,14 @@ body{
     max-width: 150vh;
 }
 
+
 th, td{
     border: 1px solid #06122a;
 }
 
 
 #simple-topic{
-    max-width: 50px;
+    max-width: 120px;
 }
 
 td.topics{

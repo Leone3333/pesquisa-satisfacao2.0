@@ -18,8 +18,8 @@ class AcessosFactory extends Factory
     {
         return [
             //
-            'email' => 'leone@gmail.com',
-            'senha' => 'leone123'
+            'email' => 'teste@gmail.com',
+            'senha' => 'teste123',
         ];
     }
 }

@@ -39,7 +39,6 @@ com a junção do butão de emoji e o subtitulo dele */
     gap: 150px;
     align-items: center;
     /*  */
-
 }
 
 /* Estilos para orientar as sessões de botão na horizontal e criar espaçamento entre eles */
@@ -79,11 +78,11 @@ com a junção do butão de emoji e o subtitulo dele */
     color: #25da42;
 }
 
-.morelas-label{
+.morelas-label {
     color: #f7e911;
 }
 
-.bad-label{
+.bad-label {
     color: #f13a36;
 }
 
@@ -100,4 +99,121 @@ com a junção do butão de emoji e o subtitulo dele */
 .button-emoji.enlarged {
     font-size: 200px;
     /* Tamanho aumentado */
+}
+
+/* tornando adaptavel para celular */
+@media screen and (max-width: 767px) and (orientation: portrait) {
+
+    body {
+        display: flex;
+        align-items: baseline;
+    }
+
+    .container {
+        /* border: 1px solid red; */
+        max-height: 80%;
+        display: grid;
+        margin-top: 20px;
+
+    }
+
+    .title {
+        /* border: 1px solid pink; */
+        position: relative;
+        display: flex;
+        justify-content: center;
+        top: 2vh;
+    }
+
+    .title>h1 {
+        font-size: 38px;
+        color: aliceblue;
+    }
+
+    .container-buttons {
+        /* border: 2px solid blue; */
+        display: grid;
+        height: 70vh;
+        margin-top: 10px;
+    }
+
+    .section-buttons {
+        /* border: 1px solid orangered; */
+        display: grid;
+        gap: 70px;
+    }
+
+    .button-emoji {
+        /* border: 1px solid rgb(51, 255, 0); */
+        font-size: 110px;
+        transition: font-size 0.5s ease;
+    }
+
+    .button-emoji.enlarged {
+        font-size: 130px;
+        /* Tamanho aumentado */
+    }
+
+    .smile-label,
+    .morelas-label,
+    .bad-label {
+        font-size: 22px;
+        font-weight: 700;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+
+}
+
+@media screen and (max-width: 900px) and (orientation: landscape){
+    .container {
+        position: relative;
+        display: grid;
+    }
+
+    .title {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        top: -1vh;
+    }
+
+    .title>h1 {
+        font-size: 50px;
+    }
+
+    .section-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 100px;
+        /* border: 1px solid green; */
+
+    }
+
+    .container-buttons {
+        display: flex;
+        align-items: center;
+        max-width: 600vh;
+                /*  */
+    }
+
+    .button-emoji {
+        /* border: 1px solid rgb(51, 255, 0); */
+        font-size: 110px;
+        transition: font-size 0.5s ease;
+    }
+
+    .button-emoji.enlarged {
+        font-size: 120px;
+        /* Tamanho aumentado */
+    }
+
+    .smile-label,
+    .morelas-label,
+    .bad-label {
+        font-size: 20px;
+        font-weight: 500;
+
+    }
 }
