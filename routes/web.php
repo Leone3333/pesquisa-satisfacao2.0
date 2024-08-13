@@ -21,7 +21,7 @@ Route::get('/login', [AcessosController::class, 'showLoginForm'])->name('login')
 Route::post('/login', [AcessosController::class, 'login']);
 
 Route::get('/dashboard', [AcessosController::class, 'dashboard'])->name('dashboard');
-Route::post('/dashboard', [AcessosController::class,'dashboard'])->name('dashboard');
+Route::get('/dashboard1', [AcessosController::class, 'reload'])->name('reload');
 
 Route::get('/feedbacks', [DashbordController::class, 'fetchFeedbacks'])->name('feedbacks');
 

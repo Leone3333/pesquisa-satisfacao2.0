@@ -113,12 +113,27 @@ body{
     transition: all 0.3s ease;
 }
 
-.toltip a{
-    font-size: 18px;
-    font-weight: 500;
-    color: aliceblue;
+.toltip{
+    display: flex;
+    justify-content: baseline;
 }
 
+.toltip p{
+    margin-top: 25px;
+}
+
+.link-text{
+    opacity: 0;
+    font-size: 20px;
+    font-weight: 500;
+    color: aliceblue;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.link-text.visible{
+    opacity: 1;
+
+}
 
 .session-charts{
     /* border: 2px solid red; */

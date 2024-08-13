@@ -26,7 +26,7 @@ class FeedbacksChart extends Chart
         ->toArray();
 
         // Campos
-        $this->labels(['Muito satisfeito', 'Mais ou menos', 'Insatisfeito']);
+        $this->labels(['Satisfeito', 'Insatisfeito', 'Muito insatisfeito']);
 
         // Nome do grafico, tipo do grafico, valores->método das cores([cores aqui])
         $this->dataset('Total', 'pie', [$data[0]['total'],$data[1]['total'],$data[2]['total']])

@@ -44,8 +44,7 @@
                         @endif
 
                         <div class="inputs">
-                            <label style="color: #050820e0" for="comentarioFeedback">Digite sugestões para
-                                nossos colaboradores</label>
+                            <label style="color: #050820e0" for="comentarioFeedback">Deixe um feedback para os nossos colaboradores</label>
                             <textarea placeholder="Digite um comentario" name="comentarioFeedback" rows="4" required></textarea>
                         </div>
                         <input name="feedbackStatus" value="@php echo $feedbackStatus['valor']; @endphp" type="hidden">

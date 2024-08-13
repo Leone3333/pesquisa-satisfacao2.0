@@ -27,6 +27,7 @@ class DashbordController extends Controller
     {
         $query = Feedbacks::paginate(10);
 
+        // var_dump($query);
         return $query;
     }
 
@@ -34,7 +35,10 @@ class DashbordController extends Controller
     {
         $query = Feedbacks::where('tipoFeedback', $requestTipoFeedback)
             ->orderBy('setor')
-            ->paginate(10);
+            ->paginate(10)
+            ->appends(request()->except('page')); // Adiciona os parâmetros do filtro à URL de paginação
+
+            // var_dump($query);
 
         return $query;
     }
@@ -44,13 +48,18 @@ class DashbordController extends Controller
         if ($requestSetorFeedback != "outros") {
             $query = Feedbacks::where('setor', $requestSetorFeedback)
                 ->orderBy('tipoFeedback')
-                ->paginate(10);
+                ->paginate(10)
+                ->appends(request()->except('page'));
+
+                // var_dump($query);
 
             return $query;
         } else {
             $query = Feedbacks::whereNotIn('setor', ['atendimento', 'caixa', 'limpeza', 'organização'])
                 ->orderBy('tipoFeedback')
                 ->paginate(10);
+
+                // var_dump($query);
 
             return $query;
         }

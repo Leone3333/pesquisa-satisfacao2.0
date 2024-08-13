@@ -12,7 +12,7 @@
                 <button class="navButton" type="submit">Home</button>
             </form>
 
-            <form action="/dashboard" method="get">
+            <form action="/dashboard1" method="get">
                 <button class="navButtonReload" type="submit">Recarregar</button>
             </form>
         </div>
@@ -25,7 +25,7 @@
             <li>
                 <a href="#card-section">
                         <i class='bx bxs-chart'></i>
-                        Cards
+                        <p class="link-text">Cards</p>
                     </a>
                 </li>
             </div>
@@ -34,7 +34,7 @@
                 <li>
                     <a href="#charts-section">
                         <i class='bx bxs-pie-chart-alt-2'></i>
-                        Graficos
+                        <p class="link-text">Graficos</p>
                     </a>
                 </li>
             </div>
@@ -43,7 +43,7 @@
                 <li>
                     <a href="#table-section">
                         <i class='bx bx-table'></i>
-                        Tabela
+                        <p class="link-text">Tabela</p>
                     </a>
                 </li>
             </div>
@@ -97,7 +97,7 @@
                 <h1>Comentarios</h1>
                 <table class="table">
                     <div class="filters">
-                        <form action="/dashboard" method="post">
+                        <form action="/dashboard" method="get">
                             @csrf
                             <div class="selected-feedback">
                                 <div class="selected-feedback-labels">
@@ -112,7 +112,7 @@
                             </div>
                         </form>
 
-                        <form action="/dashboard" method="post">
+                        <form action="/dashboard" method="get">
                             @csrf
                             <div class="selected-feedback">
                                 <div class="selected-feedback-labels">
@@ -131,6 +131,7 @@
                     </div>
 
                     <div class="table-links">
+
                         {{ $table->links('vendor.pagination.custom') }}
                     </div>
                     <tr>

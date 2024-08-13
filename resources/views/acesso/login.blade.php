@@ -17,7 +17,7 @@
             </div>
 
             <div class="img">
-                <img src="./img/Mobile Marketing (1).gif" alt="imagem indisponivel">
+                <img src="./img/Business.png" alt="imagem indisponivel">
             </div>
 
             {{-- container-left --}}

@@ -46,6 +46,13 @@ body {
     display: flex;
     justify-content: center;
     /* border: 2px solid rgb(255, 0, 140); */
+    width: 600px;
+    height: 500px;
+}
+
+.img>img {
+    width: 500px;
+    height: 500px;
 }
 
 .error {
@@ -95,13 +102,14 @@ body {
 
 
 .logo {
-    width: 325px;
-    height: 325px;
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    height: 260px;
 }
 
 .logo>img {
-    width: 325px;
-    height: 325px;
+    height: 200px;
 }
 
 

@@ -47,32 +47,87 @@ class AcessosController extends Controller
         if (!isset($user)) {
             return redirect()->route('login')->with('msgErro', 'Acesso negado pelo provedor.');
         } else {
+
             $chart = new DashbordController();
             $cardColorfull = $chart->cardsColorfull();
             $cardGray = $chart->cardGray();
 
-
             $graficoPizza = $chart->chartQttFeedback();
             $graficoBarra = $chart->chartFeedbackPorSetor();
 
+            if (isset($requisicao['tipoFeedback']) || session('tipoFeedback')) {
+                $tabletipoFeedback = $chart->onlyFeedbacksForType($requisicao['tipoFeedback']);
 
-            if (isset($requisicao['tipoFeedback'])) {
-                $table = $chart->onlyFeedbacksForType($requisicao['tipoFeedback']);
+                $this->sessionsDashboardTipoFeedback($requisicao['tipoFeedback']);
 
-                return view('acesso.dashboard', ['graficoPizza' => $graficoPizza, 'graficoBarra' => $graficoBarra,
-                'table' => $table, 'cardColorfull' => $cardColorfull, 'cardGray' => $cardGray]);
+                return view('acesso.dashboard', [
+                    'graficoPizza' => $graficoPizza,
+                    'graficoBarra' => $graficoBarra,
+                    'table' => $tabletipoFeedback,
+                    'cardColorfull' => $cardColorfull,
+                    'cardGray' => $cardGray
+                ]);
+            } else if (isset($requisicao['setorFeedback']) || session('setorFeedback')) {
+                $tablesetorFeedback = $chart->onlyFeedbacksForSetor($requisicao['setorFeedback']);
 
-            } else if(isset($requisicao['setorFeedback'])){
-                $table = $chart->onlyFeedbacksForSetor($requisicao['setorFeedback']);
+                $this->sessionsDashboardSetorFeedback($requisicao['setorFeedback']);
 
-                return view('acesso.dashboard', ['graficoPizza' => $graficoPizza, 'graficoBarra' => $graficoBarra,
-                'table' => $table, 'cardColorfull' => $cardColorfull, 'cardGray' => $cardGray]);
+                return view('acesso.dashboard', [
+                    'graficoPizza' => $graficoPizza,
+                    'graficoBarra' => $graficoBarra,
+                    'table' => $tablesetorFeedback,
+                    'cardColorfull' => $cardColorfull,
+                    'cardGray' => $cardGray
+                ]);
+            } else {
 
-            }else {
                 $table = $chart->allFeedbacks();
-                return view('acesso.dashboard', ['graficoPizza' => $graficoPizza, 'graficoBarra' => $graficoBarra,
-                'table' => $table, 'cardColorfull' => $cardColorfull, 'cardGray' => $cardGray]);
+
+                return view('acesso.dashboard', [
+                    'graficoPizza' => $graficoPizza,
+                    'graficoBarra' => $graficoBarra,
+                    'table' => $table,
+                    'cardColorfull' => $cardColorfull,
+                    'cardGray' => $cardGray
+                ]);
             }
+
         }
+    }
+
+
+    public function sessionsDashboardTipoFeedback($tipoFeedback)
+    {
+        session()->forget('setorFeedback');
+        session()->put('tipoFeedback', $tipoFeedback);
+    }
+
+    public function sessionsDashboardSetorFeedback($setorFeedback)
+    {
+        session()->forget('tipoFeedback');
+        session()->put('setorFeedback', $setorFeedback);
+    }
+
+    public function reload(Request $requisicao)
+    {
+        session()->forget('tipoFeedback');
+        session()->forget('setorFeedback');
+
+        $chart = new DashbordController();
+        $cardColorfull = $chart->cardsColorfull();
+        $cardGray = $chart->cardGray();
+
+        $graficoPizza = $chart->chartQttFeedback();
+        $graficoBarra = $chart->chartFeedbackPorSetor();
+
+        $table = $chart->allFeedbacks();
+
+                return view('acesso.dashboard', [
+                    'graficoPizza' => $graficoPizza,
+                    'graficoBarra' => $graficoBarra,
+                    'table' => $table,
+                    'cardColorfull' => $cardColorfull,
+                    'cardGray' => $cardGray
+                ]);
     }
 }
